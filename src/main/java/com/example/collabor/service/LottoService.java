@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 @Service
 public class LottoService {
 
-    public List generateLottoNumbers() {
+    public List<Integer> generateLottoNumbers() {
         List<Integer> numbers = IntStream.range(1, 46).mapToObj(i -> i).collect(Collectors.toList());
         Collections.shuffle(numbers);
         List<Integer> subList = numbers.subList(0, 6);
