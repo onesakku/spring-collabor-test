@@ -2,11 +2,13 @@ package com.example.collabor.controller;
 
 import com.example.collabor.service.HelloService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 @RequiredArgsConstructor
@@ -16,9 +18,9 @@ public class HelloController {
     private final HelloService helloService;
 
     @GetMapping("/hello")
-    public Map hello(){
+    public ResponseEntity<Map> hello(){
 
-        Map map = new HashMap();
+        Map map = new LinkedHashMap();
         map.put("1", "one");
         map.put("2", "two");
         map.put("3", "three");
@@ -27,7 +29,7 @@ public class HelloController {
         map.put("6", "six");
         map.put("7", "seven");
 
-        return map;
+        return ResponseEntity.status(HttpStatus.OK).body(map);
     }
 
 }
