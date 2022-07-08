@@ -32,4 +32,10 @@ public class HelloController {
         return ResponseEntity.status(HttpStatus.OK).body(map);
     }
 
+
+    @GetMapping("/world")
+    public ResponseEntity helloWorld(){
+        return ResponseEntity.status(HttpStatus.OK).body("Hello World");
+    }
+
 }
